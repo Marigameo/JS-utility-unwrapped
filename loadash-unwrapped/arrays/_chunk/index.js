@@ -37,11 +37,11 @@ const _chunk = function (array, size = 1) {
             resultArray.push(subArray)
         }
     }
-    console.log(resultArray);
+    return resultArray;
 }
 
 
 // running the test set of inputs 
-_chunk(['a', 'b', 'c', 'd'], 2);
+console.log(_chunk(['a', 'b', 'c', 'd'], 2));
 
-_chunk(['a', 'b', 'c', 'd'], 3);
+console.log(_chunk(['a', 'b', 'c', 'd'], 3));
