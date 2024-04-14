@@ -6,29 +6,33 @@
  */
 
 const _chunk = function (array, size = 1) {
+
+    // settings the defaults
     const length = array.length;
-
+    
     let count = 0;
-
     let subArray = [];
 
     const resultArray = [];
 
+    // reset the modified values to default
     const resetToDefault = () => {
         count = 0;
         subArray = [];
     }
 
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         count++;
 
         subArray.push(array[i]);
-
+        
+        // when it reaches breakpoint, push the sub array and reset for next set
         if (count === size) {
             resultArray.push(subArray);
             resetToDefault();
         }
 
+        // if any elements pending post full cycle of loop, add the remaining as last set
         if (count < size && i === length - 1 && subArray.length) {
             resultArray.push(subArray)
         }
@@ -37,6 +41,7 @@ const _chunk = function (array, size = 1) {
 }
 
 
+// running the test set of inputs 
 _chunk(['a', 'b', 'c', 'd'], 2);
 
 _chunk(['a', 'b', 'c', 'd'], 3);
